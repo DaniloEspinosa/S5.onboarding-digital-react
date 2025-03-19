@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Card from "./components/Card";
+import { Data } from "./interfaces/Types";
 
-const tutorialData = [
+const tutorialData: Data = [
   {
     title: "Dedica moltes hores",
     description:
@@ -31,13 +32,22 @@ function App() {
   const currentCardData = tutorialData[step];
 
   const nextStep = () => {
-    if (step < tutorialData.length) setStep(step + 1);
-    if (step == tutorialData.length - 1 ) setStep(0)
+    setStep(step + 1);
+  };
+
+  const prevStep = () => {
+    setStep(step - 1);
   };
 
   return (
     <>
-      <Card {...currentCardData} nextStep={nextStep} step={step} />
+      <Card
+        {...currentCardData}
+        nextStep={nextStep}
+        step={step}
+        prevStep={prevStep}
+        steps={tutorialData.length}
+      />
     </>
   );
 }

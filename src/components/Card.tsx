@@ -1,11 +1,5 @@
-interface CardProps {
-  title: string;
-  description: string;
-  bgColor: string;
-  image: string;
-  nextStep: () => void;
-  step: number;
-}
+import { CardProps } from "../interfaces/Types";
+import Indicator from "./Indicator";
 
 const Card = ({
   title,
@@ -14,6 +8,8 @@ const Card = ({
   bgColor,
   step,
   nextStep,
+  prevStep,
+  steps,
 }: CardProps) => {
   return (
     <div className="card">
@@ -26,12 +22,24 @@ const Card = ({
         <p>{description}</p>
 
         <div className="card-buttons">
-          <div className="selector-card">
-            <p className={step == 0 ? "card-active" : "card-inactive"}></p>
-            <p className={step == 1 ? "card-active" : "card-inactive"}></p>
-            <p className={step == 2 ? "card-active" : "card-inactive"}></p>
+          <Indicator step={step} steps={steps} />
+
+          <div className="prev-next-buttons">
+            <button
+              className="prev-button"
+              onClick={prevStep}
+              style={step === 0 ? { display: "none" } : undefined}
+            >
+              🡐
+            </button>
+            <button
+              className="next-button"
+              onClick={nextStep}
+              style={step === 2 ? { display: "none" } : undefined}
+            >
+              🡒
+            </button>
           </div>
-          <button onClick={nextStep}>➔</button>
         </div>
       </div>
     </div>
