@@ -12,6 +12,8 @@ export const Component = styled.p<ComponentProps>`
 
 
 
+
+
 const Indicator = ({ step, steps }: IndicatorProps) => {
   return (
     <div className="selector-card">
