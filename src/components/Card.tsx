@@ -10,6 +10,7 @@ const Card = ({
   nextStep,
   prevStep,
   steps,
+  setStep
 }: CardProps) => {
   return (
     <div className="card">
@@ -22,7 +23,7 @@ const Card = ({
         <p>{description}</p>
 
         <div className="card-buttons">
-          <Indicator step={step} steps={steps} />
+          <Indicator step={step} steps={steps} setStep={setStep} />
 
           <div className="prev-next-buttons">
             <button
@@ -35,7 +36,7 @@ const Card = ({
             <button
               className="next-button"
               onClick={nextStep}
-              style={step === 2 ? { display: "none" } : undefined}
+              style={step === steps - 1 ? { display: "none" } : undefined}
             >
               🡒
             </button>

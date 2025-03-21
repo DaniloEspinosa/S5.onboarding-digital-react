@@ -47,6 +47,7 @@ function App() {
         step={step}
         prevStep={prevStep}
         steps={tutorialData.length}
+        setStep={setStep}
       />
     </>
   );
