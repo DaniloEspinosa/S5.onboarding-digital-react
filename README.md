@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# React TypeScript Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a frontend application built with React and TypeScript using Vite.
 
-Currently, two official plugins are available:
+## 🛑 Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before running the project, make sure you have the following installed:
 
-## Expanding the ESLint configuration
+- **Node.js** (version 16 or higher)
+- **npm** (Node Package Manager) or **yarn**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📥 Installation and Execution
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Follow these steps to download and run the application locally:
+
+### 1️⃣ Clone the repository
+
+```sh
+git clone https://github.com/DaniloEspinosa/S5.onboarding-digital-react.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2️⃣ Navigate to the project folder
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```sh
+cd S5.onboarding-digital-react
 ```
+
+### 3️⃣ Install dependencies
+
+If you use npm:
+
+```sh
+npm install
+```
+
+Or if you use yarn:
+
+```sh
+yarn install
+```
+
+### 4️⃣ Run the application
+
+If you use npm:
+
+```sh
+npm run dev
+```
+
+Or if you use yarn:
+
+```sh
+yarn dev
+```
+
+### 5️⃣ Open the application
+
+Once the application is running, open your browser and go to:
+
+```
+http://localhost:5173/
+```
+
+## Contribution
+
+This repository does not allow external contributions (pushes from other users). It is intended only for local execution and testing.
+
+---
