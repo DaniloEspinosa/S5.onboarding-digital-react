@@ -1,18 +1,18 @@
 import styled from "styled-components";
-import { ComponentProps, IndicatorProps } from "../interfaces/Types";
+import { StyledPProps } from "../types/styledPProps";
+import { IndicatorProps } from "../types/indicatorProps";
 
-export const Component = styled.p<ComponentProps>`
-          height: 6px;
-          width: ${({ $active }) => ($active ? "20px" : "6px")};
-          background-color: ${({ $active }) => ($active ? "black" : "lightgray")};
-          border-radius: 3px;
-          transition: all .3s;
-          &:hover {
-          scale: 1.5;
-          background-color: purple
-          }
-        
-`
+export const Component = styled.p<StyledPProps>`
+  height: 6px;
+  width: ${({ $active }) => ($active ? "20px" : "6px")};
+  background-color: ${({ $active }) => ($active ? "black" : "lightgray")};
+  border-radius: 3px;
+  transition: all 0.3s;
+  &:hover {
+    scale: 1.5;
+    background-color: purple;
+  }
+`;
 
 const Indicator = ({ step, steps, setStep }: IndicatorProps) => {
   const selectorCard = (i: number) => {
@@ -24,7 +24,7 @@ const Indicator = ({ step, steps, setStep }: IndicatorProps) => {
       {Array.from({ length: steps }).map((_item, index) => (
         <Component
           key={index}
-          $active={ step === index ? 1 : 0}
+          $active={step === index ? 1 : 0}
           onClick={() => selectorCard(index)}
         />
       ))}

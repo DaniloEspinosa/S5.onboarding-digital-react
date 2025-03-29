@@ -1,7 +1,7 @@
-import { Data } from "../interfaces/Types";
 import image1 from "../assets/time_managment.svg";
 import image2 from "../assets/programming.svg";
 import image3 from "../assets/meditation.svg";
+import { Data } from "../types/data";
 
 export const tutorialData: Data = [
   {

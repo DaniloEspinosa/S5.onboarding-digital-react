@@ -1,26 +1,7 @@
-import { CardProps } from "../interfaces/Types";
 import { motion } from "framer-motion";
-import Indicator from "./Indicator";
-
-const getInitialX = (direction: number) => {
-  if (direction === 0 || direction === 3) return 300;
-  if (direction === 1 || direction === 2) return -300;
-
-  return 0;
-};
-
-
-const cardVariants = {
-  initial: (direction: number) => ({
-    x: getInitialX(direction),
-    opacity: 0,
-  }),
-  animate: { x: 0, opacity: 1 },
-  exit: () => ({
-    x: 0,
-    opacity: 0.5,
-  }),
-};
+import { CardProps } from "../types/cardProps";
+import { cardVariants } from "../utils/motionUtils";
+import CardButtons from "./CardButtons";
 
 const Card = ({
   title,
@@ -32,8 +13,7 @@ const Card = ({
   prevStep,
   steps,
   setStep,
-  direction
-
+  direction,
 }: CardProps) => {
   return (
     <motion.div
@@ -42,8 +22,8 @@ const Card = ({
       animate="animate"
       exit="exit"
       transition={{
-        x: { type: "spring", stiffness: 300, damping: 20 },
-        opacity: { duration: 0.15 }
+        x: { type: "spring", stiffness: 300, damping: 29 },
+        opacity: { duration: 0.18 },
       }}
       custom={direction}
       className="card"
@@ -56,27 +36,13 @@ const Card = ({
         <h2>{title}</h2>
         <p>{description}</p>
 
-        <div className="card-buttons">
-          <Indicator step={step} steps={steps} setStep={setStep} />
-
-          <div className="prev-next-buttons">
-            <button
-              className="prev-button"
-              onClick={prevStep}
-              style={step === 0 ? { display: "none" } : undefined}
-            >
-              🡐
-            </button>
-            <button
-              className="next-button"
-              onClick={nextStep}
-              style={step === steps - 1 ? { display: "none" } : undefined}
-            >
-              🡒
-            </button>
-          </div>
-        </div>
-
+        <CardButtons
+          step={step}
+          steps={steps}
+          setStep={setStep}
+          prevStep={prevStep}
+          nextStep={nextStep}
+        />
       </div>
     </motion.div>
   );
